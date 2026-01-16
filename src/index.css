@@ -1,0 +1,39 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+
+
+.font-urbanist {
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: white;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.055) 2px, transparent 2px); /* semi-transparent black dots */
+  background-size: 30px 30px; /* distance between dots */
+  background-attachment: fixed; /* makes it fixed while scrolling */
+}
+
+.flat {
+  fill: #e5e7eb;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.flat:hover {
+  fill: #3b82f6;
+}
+
+.flat[data-status="sold"] {
+  fill: #f87171;
+}
