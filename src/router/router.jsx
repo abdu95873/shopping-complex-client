@@ -12,7 +12,8 @@ import PrivetRoute from "../routes/PrivetRoute";
 import DashboardLayout from "../layouts/DashboardLayout";
 import MyParcels from "../pages/Dashboard/MyParcels/MyParcels";
 import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
-import FloorView from "../components/FloorView";
+import Flat from "../pages/Flat/Flat";
+import Floor from "../pages/Floor/Floor";
 
 const router = createBrowserRouter([
   {
@@ -25,8 +26,12 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
+        path: "flat/:flatId",
+        Component: Flat,
+      },
+      {
         path: "floor/:floorId",
-        Component: FloorView,
+        Component: Floor,
       },
 
 
