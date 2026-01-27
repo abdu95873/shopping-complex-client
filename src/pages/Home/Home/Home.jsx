@@ -4,7 +4,7 @@ import CarouselSection from "../Carousel/CarouselSection";
 const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-6 px-4">
-        <div className="max-w-7xl mx-auto text-center text-6xl mb-20 font-bold">
+        <div className="max-w-7xl mx-auto text-center text-6xl mb-20 mt-5 font-bold">
             <h1>Rohaman Shopping Complex</h1>
         </div>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8">

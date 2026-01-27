@@ -4,15 +4,14 @@ import { useState } from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 const Floor = () => {
-   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(null);
   const { floorId } = useParams();
   const navigate = useNavigate();
 
   const floor = floors.find(f => f.floorId === Number(floorId));
   if (!floor) return <p>Floor not found</p>;
 
- 
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   const hoveredFlat =
     hoveredIndex !== null ? floor.flats[hoveredIndex] : null;
@@ -20,38 +19,37 @@ const Floor = () => {
   return (
     <div className="flex gap-6 max-w-full mx-auto p-6">
 
-    {/* LEFT – FLAT BUTTON LIST */}
-<div className="w-1/5 flex flex-col">
-  <h3 className="font-bold mb-3">{floor.name}</h3>
+      {/* LEFT – FLAT BUTTON LIST */}
+      <div className="w-1/5">
+        <h3 className="font-bold mb-3">{floor.name}</h3>
 
-  <div className="flex-1 overflow-y-auto max-h-[calc(100vh-150px)] space-y-2">
-    {floor.flats.map((flat, index) => {
-      if (!flat) return null; // 🔐 SAFETY GUARD
+        <div className="space-y-2">
+          {floor.flats.map((flat, index) => {
+            if (!flat) return null; // 🔐 SAFETY GUARD
 
-      const isBooked = flat.bookingStatus === "booked";
+            const isBooked = flat.bookingStatus === "booked";
 
-      return (
-        <button
-          key={flat.flatNo}
-          disabled={isBooked}
-          onClick={() => setSelectedIndex(index)}
-          className={`w-full px-3 py-2 rounded text-left transition
-            ${
-              isBooked
-                ? "bg-red-200 text-red-700 cursor-not-allowed"
-                : selectedIndex === index
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 hover:bg-gray-200"
-            }`}
-        >
-          {flat.flatNo}
-          {isBooked && " (Booked)"}
-        </button>
-      );
-    })}
-  </div>
-</div>
-
+            return (
+              <button
+                key={flat.flatNo}
+                disabled={isBooked}
+                onClick={() => setSelectedIndex(index)}
+                className={`w-full px-3 py-2 rounded text-left transition
+                  ${
+                    isBooked
+                      ? "bg-red-200 text-red-700 cursor-not-allowed"
+                      : selectedIndex === index
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-100 hover:bg-gray-200"
+                  }`}
+              >
+                {flat.flatNo}
+                {isBooked && " (Booked)"}
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
       {/* MIDDLE – ZOOMABLE FLOOR MAP */}
       <div className="w-3/5 border rounded overflow-hidden">
