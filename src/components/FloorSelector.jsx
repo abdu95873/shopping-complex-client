@@ -1,6 +1,19 @@
 import { useNavigate } from "react-router-dom";
 
-const floors = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; // 12 floors
+const floors = [
+  { id: -1, label: "Basement" },
+  { id: 0, label: "Ground Floor" },
+  { id: 1, label: "1st Floor" },
+  { id: 2, label: "2nd Floor" },
+  { id: 3, label: "3rd Floor" },
+  { id: 4, label: "4th Floor" },
+  { id: 5, label: "5th Floor" },
+  { id: 6, label: "6th Floor" },
+  { id: 7, label: "7th Floor" },
+  { id: 8, label: "8th Floor" },
+  { id: 9, label: "9th Floor" },
+
+];
 
 const FloorSelector = () => {
   const navigate = useNavigate();
@@ -9,15 +22,16 @@ const FloorSelector = () => {
     <div className="flex flex-wrap gap-3">
       {floors.map((floor) => (
         <button
-          key={floor}
-          onClick={() => navigate(`/floor/${floor}`)}
+          key={floor.id}
+          onClick={() => navigate(`/floor/${floor.id}`)}
           className="px-4 py-2 bg-blue-500 text-white rounded"
         >
-          Floor {floor}
+          {floor.label}
         </button>
       ))}
     </div>
   );
 };
+
 
 export default FloorSelector;
