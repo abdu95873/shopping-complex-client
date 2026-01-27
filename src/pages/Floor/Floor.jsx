@@ -4,14 +4,15 @@ import { useState } from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 const Floor = () => {
+   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const { floorId } = useParams();
   const navigate = useNavigate();
 
   const floor = floors.find(f => f.floorId === Number(floorId));
   if (!floor) return <p>Floor not found</p>;
 
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(null);
+ 
 
   const hoveredFlat =
     hoveredIndex !== null ? floor.flats[hoveredIndex] : null;
