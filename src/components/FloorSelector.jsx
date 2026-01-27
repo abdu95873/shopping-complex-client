@@ -12,19 +12,18 @@ const floors = [
   { id: 7, label: "7th Floor" },
   { id: 8, label: "8th Floor" },
   { id: 9, label: "9th Floor" },
-
 ];
 
 const FloorSelector = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="flex flex-col gap-3 w-full">
       {floors.map((floor) => (
         <button
           key={floor.id}
           onClick={() => navigate(`/floor/${floor.id}`)}
-          className="px-4 py-2 bg-blue-500 text-white rounded"
+          className="w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
         >
           {floor.label}
         </button>
@@ -32,6 +31,5 @@ const FloorSelector = () => {
     </div>
   );
 };
-
 
 export default FloorSelector;
