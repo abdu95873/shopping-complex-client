@@ -493,8 +493,8 @@ export const floorTemplates = {
         height: "17%",
       },
       {
-        id: 103,
-        name: "Flat 103",
+        id: 109,
+        name: "Flat 109",
         top: "16.3%",
         left: "33.7%",
         width: "9%",
@@ -541,8 +541,8 @@ export const floorTemplates = {
         height: "17%",
       },
       {
-        id: 109,
-        name: "Flat 109",
+        id: 103,
+        name: "Flat 103",
         top: "51%",
         left: "13.2%",
         width: "16.7%",
