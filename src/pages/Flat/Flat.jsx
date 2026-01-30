@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { flats } from "../../data/flats";
 import { useState } from "react";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+
 
 const Flat = () => {
   const { flatId } = useParams();
@@ -12,63 +14,78 @@ const Flat = () => {
   if (!flat) return <p>Flat not found</p>;
 
   return (
-    <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-      <h1 className="text-2xl font-bold mb-4">{flat.name}</h1>
+    <div className="flex gap-6 max-w-full mx-auto p-6">
 
-      {/* FLAT IMAGE + ROOMS */}
-      <div style={{ position: "relative", width: "100%" }}>
-        <img
-          src={flat.image}
-          alt={flat.name}
-          style={{ width: "100%", display: "block" }}
-        />
-
-        {flat.rooms.map((room) => (
-          <div
-            key={room.id}
-            onMouseEnter={() => setHovered(room.id)}
-            onMouseLeave={() => setHovered(null)}
-            style={{
-              position: "absolute",
-              top: room.top,
-              left: room.left,
-              width: room.width,
-              height: room.height,
-              border: "2px solid rgba(0,0,0,0.35)",
-              backgroundColor:
-                hovered === room.id
-                  ? "rgba(255, 165, 0, 0.45)"
-                  : "transparent",
-              cursor: "pointer",
-              transition: "0.2s ease",
-            }}
-          />
-        ))}
-      </div>
-
-      {/* HOVER INFO */}
-      
- <div className="h-44"
-          style={{
-            marginTop: "20px",
-            padding: "15px",
-            border: "1px solid #ccc",
-            borderRadius: "8px",
-            backgroundColor: "#f9f9f9",
-          }}
+      {/* LEFT – ZOOMABLE FLAT MAP */}
+      <div className="w-full h-screen border rounded overflow-hidden flex items-center justify-center">
+        <TransformWrapper
+          initialScale={0.6}
+          minScale={0.6}
+          maxScale={4}
+          wheel={{ step: 0.1 }}
+          panning={{ velocityDisabled: true }}
+          doubleClick={{ disabled: true }}
+          centerOnInit={true}
         >
-      {hoveredRoom && (
-       <div>
-          <h3 className="font-bold mb-2">Room Info</h3>
-          <p><strong>Name:</strong> {hoveredRoom.name}</p>
-          <p><strong>Size:</strong> {hoveredRoom.realWidth} × {hoveredRoom.realHeight}</p>
-          <p><strong>Top:</strong> {hoveredRoom.top}</p>
-          <p><strong>Left:</strong> {hoveredRoom.left}</p>
-        </div>
-      )}
+          <TransformComponent>
+            <div className="relative">
+              <img
+                src={flat.image}
+                alt={flat.name}
+                className="w-full h-auto object-contain select-none"
+              />
+
+              {flat.rooms.map((room) => (
+                <div
+                  key={room.id}
+                  onMouseEnter={() => setHovered(room.id)}
+                  onMouseLeave={() => setHovered(null)}
+                  className="absolute transition"
+                  style={{
+                    top: room.top,
+                    left: room.left,
+                    width: room.width,
+                    height: room.height,
+                    border: "1px solid rgba(0,0,0,0.35)",
+                    backgroundColor:
+                      hovered === room.id
+                        ? "rgba(255,165,0,0.35)"
+                        : "transparent",
+                  }}
+                />
+              ))}
+            </div>
+          </TransformComponent>
+        </TransformWrapper>
+
       </div>
+
+
+
+      {/* RIGHT – ROOM INFO */}
+      <div className="w-1/4">
+        <h3 className="font-bold mb-3">Room Info</h3>
+
+        <div className="min-h-[160px] p-4 border rounded bg-gray-50">
+          {hoveredRoom ? (
+            <>
+              <p><strong>Name:</strong> {hoveredRoom.name}</p>
+              <p>
+                <strong>Size:</strong>{" "}
+                {hoveredRoom.realWidth} × {hoveredRoom.realHeight}
+              </p>
+              <p><strong>Top:</strong> {hoveredRoom.top}</p>
+              <p><strong>Left:</strong> {hoveredRoom.left}</p>
+            </>
+          ) : (
+            <p className="text-gray-400">Hover over a room</p>
+          )}
+        </div>
+      </div>
+
     </div>
   );
+
 };
 
 export default Flat;

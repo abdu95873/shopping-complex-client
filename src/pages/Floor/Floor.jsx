@@ -6,15 +6,21 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 const Floor = () => {
   const { floorId } = useParams();
   const navigate = useNavigate();
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
+
 
   const floor = floors.find(f => f.floorId === Number(floorId));
   if (!floor) return <p>Floor not found</p>;
 
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(null);
+
+  const hoveredTemplateFlat =
+    hoveredIndex !== null ? floor.template.flats[hoveredIndex] : null;
 
   const hoveredFlat =
     hoveredIndex !== null ? floor.flats[hoveredIndex] : null;
+
+
 
   return (
     <div className="flex gap-6 max-w-full mx-auto p-6">
@@ -35,10 +41,9 @@ const Floor = () => {
                 disabled={isBooked}
                 onClick={() => setSelectedIndex(index)}
                 className={`w-full px-3 py-2 rounded text-left transition
-                  ${
-                    isBooked
-                      ? "bg-red-200 text-red-700 cursor-not-allowed"
-                      : selectedIndex === index
+                  ${isBooked
+                    ? "bg-red-200 text-red-700 cursor-not-allowed"
+                    : selectedIndex === index
                       ? "bg-blue-600 text-white"
                       : "bg-gray-100 hover:bg-gray-200"
                   }`}
@@ -97,10 +102,10 @@ const Floor = () => {
                       backgroundColor: isBooked
                         ? "rgba(220,53,69,0.45)" // 🔴 booked
                         : isSelected
-                        ? "rgba(0,123,255,0.45)" // 🔵 selected
-                        : isHovered
-                        ? "rgba(255,165,0,0.35)" // 🟠 hover
-                        : "transparent",
+                          ? "rgba(0,123,255,0.45)" // 🔵 selected
+                          : isHovered
+                            ? "rgba(255,165,0,0.35)" // 🟠 hover
+                            : "transparent",
                       cursor: isBooked ? "not-allowed" : "pointer",
                     }}
                   />
@@ -118,8 +123,9 @@ const Floor = () => {
         <div className="min-h-[120px] p-4 border rounded bg-gray-50">
           {hoveredFlat ? (
             <>
-              <p><strong>Flat No:</strong> {hoveredFlat.flatNo}</p>
               <p><strong>Floor:</strong> {floor.name}</p>
+
+              <p><strong>Flat No:</strong> {hoveredTemplateFlat.name}</p>
               <p>
                 <strong>Status:</strong>{" "}
                 <span

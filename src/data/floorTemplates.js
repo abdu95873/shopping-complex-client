@@ -493,8 +493,8 @@ export const floorTemplates = {
         height: "17%",
       },
       {
-        id: 109,
-        name: "Flat 109",
+        id: 103,
+        name: "Flat 06A",
         top: "16.3%",
         left: "33.7%",
         width: "9%",
@@ -502,7 +502,7 @@ export const floorTemplates = {
       },
       {
         id: 104,
-        name: "Flat 104",
+        name: "Flat 06B",
         top: "16.3%",
         left: "42.5%",
         width: "9.5%",
@@ -510,7 +510,7 @@ export const floorTemplates = {
       },
       {
         id: 105,
-        name: "Flat 105",
+        name: "Flat 08A",
         top: "16.3%",
         left: "55.3%",
         width: "9.5%",
@@ -518,7 +518,7 @@ export const floorTemplates = {
       },
       {
         id: 106,
-        name: "Flat 106",
+        name: "Flat 08B",
         top: "16.3%",
         left: "64.7%",
         width: "8.9%",
@@ -526,7 +526,7 @@ export const floorTemplates = {
       },
       {
         id: 107,
-        name: "Flat 107",
+        name: "Flat 09",
         top: "16.3%",
         left: "75.5%",
         width: "18.5%",
@@ -534,15 +534,15 @@ export const floorTemplates = {
       },
       {
         id: 108,
-        name: "Flat 108",
+        name: "Flat 10",
         top: "31%",
         left: "77.4%",
         width: "16.4%",
         height: "17%",
       },
       {
-        id: 103,
-        name: "Flat 103",
+        id: 109,
+        name: "Flat 03",
         top: "51%",
         left: "13.2%",
         width: "16.7%",
@@ -550,7 +550,7 @@ export const floorTemplates = {
       },
       {
         id: 110,
-        name: "Flat 110",
+        name: "Flat 04",
         top: "68%",
         left: "13.2%",
         width: "18.5%",
@@ -558,7 +558,7 @@ export const floorTemplates = {
       },
       {
         id: 111,
-        name: "Flat 111",
+        name: "Flat 05",
         top: "51%",
         left: "33.7%",
         width: "18.5%",
@@ -566,7 +566,7 @@ export const floorTemplates = {
       },
       {
         id: 112,
-        name: "Flat 112",
+        name: "Flat 07",
         top: "51%",
         left: "55.3%",
         width: "18.5%",
@@ -574,7 +574,7 @@ export const floorTemplates = {
       },
       {
         id: 113,
-        name: "Flat 113",
+        name: "Flat 11",
         top: "51%",
         left: "77.4%",
         width: "15.9%",
@@ -582,7 +582,7 @@ export const floorTemplates = {
       },
       {
         id: 114,
-        name: "Flat 114",
+        name: "Flat 12",
         top: "68%",
         left: "75.5%",
         width: "17.3%",
