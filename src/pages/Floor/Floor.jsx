@@ -14,6 +14,7 @@ const Floor = () => {
   if (!floor) return <p>Floor not found</p>;
 
 
+
   const hoveredTemplateFlat =
     hoveredIndex !== null ? floor.template.flats[hoveredIndex] : null;
 
@@ -48,7 +49,7 @@ const Floor = () => {
                       : "bg-gray-100 hover:bg-gray-200"
                   }`}
               >
-                {flat.flatNo}
+                {flat.name}
                 {isBooked && " (Booked)"}
               </button>
             );
