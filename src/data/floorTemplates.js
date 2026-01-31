@@ -493,54 +493,6 @@ export const floorTemplates = {
         height: "17%",
       },
       {
-        id: 103,
-        name: "Flat 06A",
-        top: "16.3%",
-        left: "33.7%",
-        width: "9%",
-        height: "31.5%",
-      },
-      {
-        id: 104,
-        name: "Flat 06B",
-        top: "16.3%",
-        left: "42.5%",
-        width: "9.5%",
-        height: "31.5%",
-      },
-      {
-        id: 105,
-        name: "Flat 08A",
-        top: "16.3%",
-        left: "55.3%",
-        width: "9.5%",
-        height: "31.5%",
-      },
-      {
-        id: 106,
-        name: "Flat 08B",
-        top: "16.3%",
-        left: "64.7%",
-        width: "8.9%",
-        height: "31.5%",
-      },
-      {
-        id: 107,
-        name: "Flat 09",
-        top: "16.3%",
-        left: "75.5%",
-        width: "18.5%",
-        height: "15%",
-      },
-      {
-        id: 108,
-        name: "Flat 10",
-        top: "31%",
-        left: "77.4%",
-        width: "16.4%",
-        height: "17%",
-      },
-      {
         id: 109,
         name: "Flat 03",
         top: "51%",
@@ -564,6 +516,24 @@ export const floorTemplates = {
         width: "18.5%",
         height: "31.5%",
       },
+
+      {
+        id: 103,
+        name: "Flat 06A",
+        top: "16.3%",
+        left: "33.7%",
+        width: "9%",
+        height: "31.5%",
+      },
+      {
+        id: 104,
+        name: "Flat 06B",
+        top: "16.3%",
+        left: "42.5%",
+        width: "9.5%",
+        height: "31.5%",
+      },
+
       {
         id: 112,
         name: "Flat 07",
@@ -572,6 +542,42 @@ export const floorTemplates = {
         width: "18.5%",
         height: "31.5%",
       },
+      {
+        id: 105,
+        name: "Flat 08A",
+        top: "16.3%",
+        left: "55.3%",
+        width: "9.5%",
+        height: "31.5%",
+      },
+      {
+        id: 106,
+        name: "Flat 08B",
+        top: "16.3%",
+        left: "64.7%",
+        width: "8.9%",
+        height: "31.5%",
+      },
+
+      {
+        id: 107,
+        name: "Flat 09",
+        top: "16.3%",
+        left: "75.5%",
+        width: "18.5%",
+        height: "15%",
+      },
+      {
+        id: 108,
+        name: "Flat 10",
+        top: "31%",
+        left: "77.4%",
+        width: "16.4%",
+        height: "17%",
+      },
+
+
+
       {
         id: 113,
         name: "Flat 11",
