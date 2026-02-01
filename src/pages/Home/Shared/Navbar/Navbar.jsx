@@ -48,7 +48,7 @@ const Navbar = () => {
         About Us
       </HashLink>
     </li>
-    <li>
+    {/* <li>
       <HashLink
         to="/pricingCalculator"
         className={`px-3 py-2 rounded-xl ${location.pathname === '/pricingCalculator' ? 'bg-blue-400' : ''}`}
@@ -79,7 +79,9 @@ const Navbar = () => {
       >
         Coverage
       </HashLink>
-    </li>
+    </li> */}
+
+
   </>;
 
   return (
@@ -111,19 +113,19 @@ const Navbar = () => {
       <div className="navbar-end gap-3">
 
         {/* Show Sign In only when NOT logged in */}
-        {!user && (
+        {/* {!user && (
           <Link to="/login" className="btn rounded-xl">
             Sign In
           </Link>
-        )}
+        )} */}
 
         {/* Show Logout only when logged in */}
-        {user && (
+        {/* {user && (
           <button onClick={handleLogOut} className="btn rounded-xl">
             Logout
           </button>
-        )}
-        {!user && (
+        )} */}
+        {/* {!user && (
           <div className="flex items-center">
             <Link to="/register" className="btn rounded-xl  px-6 py-2 transition">
               Sign Up
@@ -131,7 +133,7 @@ const Navbar = () => {
 
 
           </div>
-        )}
+        )} */}
       </div>
 
     </div>

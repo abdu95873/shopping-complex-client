@@ -59,6 +59,7 @@ const Floor = () => {
 
       {/* MIDDLE – ZOOMABLE FLOOR MAP */}
       <div className="w-3/5 border rounded overflow-hidden">
+
         <TransformWrapper
           minScale={0.6}
           maxScale={4}
@@ -143,6 +144,25 @@ const Floor = () => {
           ) : (
             <p className="text-gray-400">Hover over a flat</p>
           )}
+        </div>
+      </div>
+      {/* 🧭 FIXED COMPASS (Social Media Style) */}
+      <div className="fixed bottom-6 right-6 z-50 bg-blue-300
+                rounded-full w-18 h-18 flex items-center justify-center
+                shadow-xl select-none">
+        <div className="relative w-12 h-12 font-bold text-sm text-gray-800">
+          <span className="absolute top-0 left-1/2 -translate-x-1/2 text-red-600">
+            N
+          </span>
+          <span className="absolute bottom-0 left-1/2 -translate-x-1/2">
+            S
+          </span>
+          <span className="absolute left-0 top-1/2 -translate-y-1/2">
+            W
+          </span>
+          <span className="absolute right-0 top-1/2 -translate-y-1/2">
+            E
+          </span>
         </div>
       </div>
 

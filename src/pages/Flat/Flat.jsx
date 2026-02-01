@@ -18,6 +18,25 @@ const Flat = () => {
 
       {/* LEFT – ZOOMABLE FLAT MAP */}
       <div className="w-full h-screen border rounded overflow-hidden flex items-center justify-center">
+        {/* 🧭 COMPASS */}
+        <div className="absolute top-3 right-3 z-20 bg-blue-300 backdrop-blur
+                  rounded-full w-16 h-16 flex items-center justify-center
+                  shadow-md select-none">
+          <div className="relative w-10 h-10 font-bold text-sm text-gray-700">
+            <span className="absolute top-0 left-1/2 -translate-x-1/2 text-red-600">
+              N
+            </span>
+            <span className="absolute bottom-0 left-1/2 -translate-x-1/2">
+              S
+            </span>
+            <span className="absolute left-0 top-1/2 -translate-y-1/2">
+              W
+            </span>
+            <span className="absolute right-0 top-1/2 -translate-y-1/2">
+              E
+            </span>
+          </div>
+        </div>
         <TransformWrapper
           initialScale={0.6}
           minScale={0.6}
@@ -82,7 +101,25 @@ const Flat = () => {
           )}
         </div>
       </div>
-
+      {/* 🧭 FIXED COMPASS (Social Media Style) */}
+      <div className="fixed bottom-6 right-6 z-50 bg-blue-300
+                rounded-full w-18 h-18 flex items-center justify-center
+                shadow-xl select-none">
+        <div className="relative w-12 h-12 font-bold text-sm text-gray-800">
+          <span className="absolute top-0 left-1/2 -translate-x-1/2 text-red-600">
+            N
+          </span>
+          <span className="absolute bottom-0 left-1/2 -translate-x-1/2">
+            S
+          </span>
+          <span className="absolute left-0 top-1/2 -translate-y-1/2">
+            W
+          </span>
+          <span className="absolute right-0 top-1/2 -translate-y-1/2">
+            E
+          </span>
+        </div>
+      </div>
     </div>
   );
 
