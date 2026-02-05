@@ -14,6 +14,9 @@ import MyParcels from "../pages/Dashboard/MyParcels/MyParcels";
 import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
 import Flat from "../pages/Flat/Flat";
 import Floor from "../pages/Floor/Floor";
+import AboutUs from "../pages/AboutUs/AboutUs";
+import Services from "../pages/Services/Services";
+import Contact from "../pages/Contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +35,18 @@ const router = createBrowserRouter([
       {
         path: "floor/:floorId",
         Component: Floor,
+      },
+      {
+        path: "about-us",
+        Component: AboutUs,
+      },
+      {
+        path: "services",
+        Component: Services,
+      },
+      {
+        path: "contact",
+        Component: Contact,
       },
 
 

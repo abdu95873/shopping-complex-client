@@ -3,22 +3,22 @@ import ProFastLogo from '../Logo/ProFastLogo';
 import { HashLink } from 'react-router-hash-link';
 import { Navigate, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import useAuth from '../../../../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
+// import useAuth from '../../../../hooks/useAuth';
+// import { useNavigate } from 'react-router-dom';
 
 
 const Navbar = () => {
   const location = useLocation();
-  const navigate = useNavigate(); // ✅ get navigate hook
+  // const navigate = useNavigate(); // ✅ get navigate hook
 
 
-  const { logOut, user } = useAuth();
+  // const { logOut, user } = useAuth();
 
-  const handleLogOut = () => {
-    logOut();
-    navigate("/login"); // ✅ correct navigation
+  // const handleLogOut = () => {
+  //   logOut();
+  //   navigate("/login"); // ✅ correct navigation
 
-  }
+  // }
 
   const navItems = <>
     <li>
@@ -31,55 +31,32 @@ const Navbar = () => {
       </HashLink>
 
     </li>
+
     <li>
       <HashLink
-        smooth
-        to="/#services"
-        className={`px-3 py-2 rounded-xl ${location.hash === '#services' ? 'bg-blue-400' : ''}`}
+        to="/services"
+        className={`px-3 py-2 rounded-xl ${location.pathname === '/services' ? 'bg-blue-400' : ''}`}
       >
         Services
       </HashLink>
     </li>
     <li>
       <HashLink
-        to="/aboutUs"
-        className={`px-3 py-2 rounded-xl ${location.pathname === '/aboutUs' ? 'bg-blue-400' : ''}`}
+        to="/about-us"
+        className={`px-3 py-2 rounded-xl ${location.pathname === '/about-us' ? 'bg-blue-400' : ''}`}
       >
         About Us
       </HashLink>
     </li>
-    {/* <li>
-      <HashLink
-        to="/pricingCalculator"
-        className={`px-3 py-2 rounded-xl ${location.pathname === '/pricingCalculator' ? 'bg-blue-400' : ''}`}
-      >
-        Pricing
-      </HashLink>
-    </li>
     <li>
       <HashLink
-        to="/beARider"
-        className={`px-3 py-2 rounded-xl ${location.pathname === '/beARider' ? 'bg-blue-400' : ''}`}
+        to="/contact"
+        className={`px-3 py-2 rounded-xl ${location.pathname === '/contact' ? 'bg-blue-400' : ''}`}
       >
-        Be A Rider
+        Contact
       </HashLink>
     </li>
-    <li>
-      <HashLink
-        to="/sendParcelSection"
-        className={`px-3 py-2 rounded-xl ${location.pathname === '/sendParcelSection' ? 'bg-blue-400' : ''}`}
-      >
-        Send Parcel
-      </HashLink>
-    </li>
-    <li>
-      <HashLink
-        to="/mapSection"
-        className={`px-3 py-2 rounded-xl ${location.pathname === '/mapSection' ? 'bg-blue-400' : ''}`}
-      >
-        Coverage
-      </HashLink>
-    </li> */}
+
 
 
   </>;

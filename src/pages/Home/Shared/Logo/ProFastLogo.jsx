@@ -6,9 +6,9 @@ const ProFastLogo = () => {
 
     return (
 
-        <div className='flex items-end'>
+        <div className='flex items-end ml-10'>
             {/* <img className='mb-2' src={logo} alt="" /> */}
-            <span className='text-3xl -ml-2 font-extrabold'>LOGO</span>
+            <span className='text-3xl -ml-2 font-extrabold'>RSC</span>
         </div>
     )
 };
