@@ -27,12 +27,12 @@ const Floor = () => {
     <div className="flex gap-6 max-w-full mx-auto p-6">
 
       {/* LEFT – FLAT BUTTON LIST */}
-      <div className="w-1/5">
+      <div className="w-1/5 sticky top-4 h-fit">
         <h3 className="font-bold mb-3">{floor.name}</h3>
 
-        <div className="space-y-2">
+        <div className="space-y-2 max-h-[80vh] overflow-y-auto pr-1">
           {floor.flats.map((flat, index) => {
-            if (!flat) return null; // 🔐 SAFETY GUARD
+            if (!flat) return null;
 
             const isBooked = flat.bookingStatus === "booked";
 
@@ -42,7 +42,7 @@ const Floor = () => {
                 disabled={isBooked}
                 onClick={() => setSelectedIndex(index)}
                 className={`w-full px-3 py-2 rounded text-left transition
-                  ${isBooked
+          ${isBooked
                     ? "bg-red-200 text-red-700 cursor-not-allowed"
                     : selectedIndex === index
                       ? "bg-blue-600 text-white"
@@ -58,7 +58,7 @@ const Floor = () => {
       </div>
 
       {/* MIDDLE – ZOOMABLE FLOOR MAP */}
-      <div className="w-3/5 border rounded overflow-hidden">
+      <div className="w-4/5 border rounded overflow-hidden">
 
         <TransformWrapper
           minScale={0.6}
@@ -119,7 +119,7 @@ const Floor = () => {
       </div>
 
       {/* RIGHT – HOVER INFO */}
-      <div className="w-1/5">
+      {/* <div className="w-1/5">
         <h3 className="font-bold mb-3">Flat Info</h3>
 
         <div className="min-h-[120px] p-4 border rounded bg-gray-50">
@@ -145,7 +145,7 @@ const Floor = () => {
             <p className="text-gray-400">Hover over a flat</p>
           )}
         </div>
-      </div>
+      </div> */}
       {/* 🧭 FIXED COMPASS (Social Media Style) */}
       <div className="fixed bottom-6 right-6 z-50 bg-blue-300
                 rounded-full w-18 h-18 flex items-center justify-center
