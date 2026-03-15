@@ -119,7 +119,7 @@ const Floor = () => {
       </div>
 
       {/* RIGHT – HOVER INFO */}
-      {/* <div className="w-1/5">
+      <div className="w-1/5">
         <h3 className="font-bold mb-3">Flat Info</h3>
 
         <div className="min-h-[120px] p-4 border rounded bg-gray-50">
@@ -145,7 +145,7 @@ const Floor = () => {
             <p className="text-gray-400">Hover over a flat</p>
           )}
         </div>
-      </div> */}
+      </div>
       {/* 🧭 FIXED COMPASS (Social Media Style) */}
       <div className="fixed bottom-6 right-6 z-50 bg-blue-300
                 rounded-full w-18 h-18 flex items-center justify-center
