@@ -1,9 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import useAuth from "../../../hooks/useAuth";
-import { useLocation } from "react-router";
 
 
 const Login = () => {
@@ -35,11 +34,11 @@ const Login = () => {
     };
 
     return (
-        <div className="flex w-full h-screen items-center justify-center bg-base-200 px-4">
-            <div className="card max-w-sm w-full shadow-2xl bg-base-100">
+        <div className="flex w-full items-center justify-center px-2 py-4 sm:px-4">
+            <div className="card w-full max-w-md rounded-3xl border border-slate-200 bg-white shadow-sm">
                 <div className="px-6 pt-6">
-                    <h1 className="text-3xl mb-1">Welcome Back</h1>
-                    <p className="text-gray-600">Login with ProFast</p>
+                    <h1 className="text-3xl mb-1 font-bold text-slate-900">Welcome Back</h1>
+                    <p className="text-slate-600">Sign in to continue managing QR and vehicles.</p>
                 </div>
                 <div className="card-body">
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -79,27 +78,20 @@ const Login = () => {
 
                         {/* Forgot Password */}
                         <div className="mt-2 text-right">
-                            <Link to="/forgotPassword" className="link link-hover opacity-70">Forgot password?</Link>
+                            <Link to="/forgotPassword" className="text-sm text-slate-600 hover:text-slate-900">Forgot password?</Link>
                         </div>
 
-                        {/* Login Button */}
-                        <button type="submit" className="btn  w-full">
+                        <button type="submit" className="btn w-full border-none bg-slate-900 text-white hover:bg-slate-800">
                             Login
                         </button>
 
-                        {/* Register Link */}
-                        <div className="flex items-center gap-2 opacity-70 ">
+                        <div className="flex items-center gap-2 text-sm text-slate-600">
                             <span>Don't have any Account?</span>
-                            <Link to="/register" className="link link-hover ">Register</Link>
+                            <Link to="/register" className="font-medium text-slate-900 hover:underline">Register</Link>
                         </div>
 
-                        {/* Or */}
-                        <div>
-                            <h1 className="text-center opacity-50">Or</h1>
-                        </div>
-                        <div>
-                            <SocialLogin></SocialLogin>
-                        </div>
+                        <p className="text-center text-sm text-slate-400">Or</p>
+                        <SocialLogin />
                     </form>
                 </div>
             </div>

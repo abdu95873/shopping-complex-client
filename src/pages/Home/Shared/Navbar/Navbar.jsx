@@ -1,119 +1,109 @@
 import React from 'react';
 import ProFastLogo from '../Logo/ProFastLogo';
-import { HashLink } from 'react-router-hash-link';
-import { Navigate, useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-// import useAuth from '../../../../hooks/useAuth';
-// import { useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { ChevronDown, Menu, Search } from 'lucide-react';
+import useAuth from '../../../../hooks/useAuth';
 
 
 const Navbar = () => {
-  const location = useLocation();
-  // const navigate = useNavigate(); // ✅ get navigate hook
+  const navigate = useNavigate(); // ✅ get navigate hook
 
 
-  // const { logOut, user } = useAuth();
+  const { logOut, user } = useAuth();
 
-  // const handleLogOut = () => {
-  //   logOut();
-  //   navigate("/login"); // ✅ correct navigation
+  const handleLogOut = () => {
+    logOut();
+    navigate("/login");
+  };
 
-  // }
-
-  const navItems = <>
-    <li>
-      <HashLink
-        smooth
-        to="/"
-        className={`px-3 py-2 rounded-xl ${location.pathname === '/' && !location.hash ? 'bg-blue-400' : ''}`}
-      >
-        Home
-      </HashLink>
-
-    </li>
-
-    <li>
-      <HashLink
-        to="/services"
-        className={`px-3 py-2 rounded-xl ${location.pathname === '/services' ? 'bg-blue-400' : ''}`}
-      >
-        Services
-      </HashLink>
-    </li>
-    <li>
-      <HashLink
-        to="/about-us"
-        className={`px-3 py-2 rounded-xl ${location.pathname === '/about-us' ? 'bg-blue-400' : ''}`}
-      >
-        About Us
-      </HashLink>
-    </li>
-    <li>
-      <HashLink
-        to="/contact"
-        className={`px-3 py-2 rounded-xl ${location.pathname === '/contact' ? 'bg-blue-400' : ''}`}
-      >
-        Contact
-      </HashLink>
-    </li>
-
-
-
-  </>;
+  const publicNavItems = [
+    { label: 'Home', to: '/', hasMenu: true },
+    { label: 'About', to: '/about-us', hasMenu: true },
+    { label: 'Services', to: '/services', hasMenu: true },
+    { label: 'Projects', to: '/services', hasMenu: true },
+    { label: 'Pages', to: '/contact', hasMenu: true },
+    { label: 'Blog', to: '/contact', hasMenu: true },
+    { label: 'Contact', to: '/contact', hasMenu: true },
+  ];
+  const navItems = publicNavItems;
 
   return (
-    <div className="navbar bg-base-100 shadow-sm rounded-xl">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
-            </svg>
-          </div>
-          <ul
-            tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            {navItems}
-          </ul>
-        </div>
-        <Link to="/" className="btn btn-ghost text-xl">
-          <ProFastLogo />
-        </Link>
-      </div>
-
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-1">
-          {navItems}
-        </ul>
-      </div>
-
-      <div className="navbar-end gap-3">
-
-        {/* Show Sign In only when NOT logged in */}
-        {/* {!user && (
-          <Link to="/login" className="btn rounded-xl">
-            Sign In
+    <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950 text-white">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+        <div className="logo-box">
+          <Link to="/" className="inline-flex items-center">
+            <ProFastLogo className="text-white" />
           </Link>
-        )} */}
+        </div>
 
-        {/* Show Logout only when logged in */}
-        {/* {user && (
-          <button onClick={handleLogOut} className="btn rounded-xl">
-            Logout
+        <div className="right-column flex items-center gap-2 sm:gap-3">
+          <nav className="hidden xl:block">
+            <ul className="flex items-center gap-1">
+              {navItems.map((item) => (
+                <li key={item.label}>
+                  <NavLink
+                    to={item.to}
+                    className={({ isActive }) =>
+                      `inline-flex items-center gap-1 rounded-md px-2.5 py-2 text-xs font-semibold uppercase tracking-wide transition ${
+                        isActive ? "text-rose-400" : "text-slate-200 hover:text-white"
+                      }`
+                    }
+                  >
+                    <span>{item.label}</span>
+                    {item.hasMenu && <ChevronDown size={13} className="opacity-70" />}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <button type="button" className="hidden h-9 w-9 items-center justify-center rounded-full border border-slate-600 text-slate-100 hover:bg-slate-800 md:inline-flex">
+            <Search size={15} />
           </button>
-        )} */}
-        {/* {!user && (
-          <div className="flex items-center">
-            <Link to="/register" className="btn rounded-xl  px-6 py-2 transition">
-              Sign Up
+          <button type="button" className="hidden h-9 w-9 items-center justify-center rounded-full border border-slate-600 text-slate-100 hover:bg-slate-800 md:inline-flex">
+            <Menu size={15} />
+          </button>
+
+          {user ? (
+            <button onClick={handleLogOut} className="hidden rounded-full bg-rose-500 px-5 py-2 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-rose-600 sm:inline-flex">
+              Logout
+            </button>
+          ) : (
+            <Link to="/contact" className="hidden rounded-full bg-rose-500 px-5 py-2 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-rose-600 sm:inline-flex">
+              Get Appointment
             </Link>
+          )}
 
-
+          <div className="dropdown xl:hidden">
+            <button tabIndex={0} className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-600 text-slate-100">
+              <Menu size={16} />
+            </button>
+            <ul
+              tabIndex={0}
+              className="menu dropdown-content right-0 z-10 mt-3 w-64 rounded-xl border border-slate-700 bg-slate-900 p-2 shadow-xl"
+            >
+              {navItems.map((item) => (
+                <li key={item.label}>
+                  <NavLink
+                    to={item.to}
+                    className={({ isActive }) =>
+                      `rounded-lg px-3 py-2 text-sm ${isActive ? "bg-rose-500 text-white" : "text-slate-200 hover:bg-slate-800"}`
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
+              {!user && (
+                <li>
+                  <Link to="/login" className="rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-slate-800">Sign In</Link>
+                </li>
+              )}
+            </ul>
           </div>
-        )} */}
+        </div>
       </div>
-
-    </div>
+    </header>
   );
 };
 

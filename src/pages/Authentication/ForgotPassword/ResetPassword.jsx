@@ -17,13 +17,13 @@ const ResetPassword = () => {
     const newPassword = watch("newPassword");
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-base-200 px-4">
-            <div className="card max-w-sm w-full shadow-2xl bg-base-100">
+        <div className="flex items-center justify-center px-2 py-4 sm:px-4">
+            <div className="card w-full max-w-md rounded-3xl border border-slate-200 bg-white shadow-sm">
 
                 {/* Header */}
                 <div className="px-6 pt-6">
-                    <h1 className="text-3xl font-bold">Reset Password</h1>
-                    <p className="text-gray-600">Reset your password</p>
+                    <h1 className="text-3xl font-bold text-slate-900">Reset Password</h1>
+                    <p className="text-slate-600">Set a new secure password.</p>
                 </div>
 
                 <div className="card-body">
@@ -71,7 +71,7 @@ const ResetPassword = () => {
                             )}
                         </div>
 
-                        <button className="btn  w-full mt-4">
+                        <button className="btn w-full border-none bg-slate-900 text-white hover:bg-slate-800 mt-4">
                             Reset Password
                         </button>
                     </form>

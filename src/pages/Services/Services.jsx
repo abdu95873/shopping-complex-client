@@ -1,31 +1,33 @@
 import React from 'react';
 
 const Services = () => {
-    const services = [
-        { title: "Residential Construction", description: "We build dream homes with quality materials and expert craftsmanship." },
-        { title: "Commercial Construction", description: "Office buildings, shopping complexes, and more with professional planning." },
-        { title: "Industrial Projects", description: "Factories, warehouses, and industrial facilities built with precision." },
-        { title: "Renovation & Remodeling", description: "Transforming existing spaces into functional and beautiful environments." },
-        { title: "Project Management", description: "Expert planning, scheduling, and execution for smooth project delivery." },
-    ];
+  const services = [
+    { title: "Residential Construction", description: "We build dream homes with quality materials and expert craftsmanship." },
+    { title: "Commercial Construction", description: "Office buildings, shopping complexes, and more with professional planning." },
+    { title: "Industrial Projects", description: "Factories, warehouses, and industrial facilities built with precision." },
+    { title: "Renovation & Remodeling", description: "Transforming existing spaces into functional and beautiful environments." },
+    { title: "Project Management", description: "Expert planning, scheduling, and execution for smooth project delivery." },
+  ];
 
-    return (
-        <div className="min-h-screen bg-gray-50 py-10 px-4">
-            <div className="max-w-5xl mx-auto text-center mb-12">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
-                <p className="text-gray-700 text-lg md:text-xl">We provide a wide range of construction services to meet your project needs.</p>
-            </div>
+  return (
+    <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+      <div className="mx-auto max-w-5xl text-center">
+        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Our Services</h2>
+        <p className="mt-3 text-sm text-slate-600 sm:text-base">
+          We provide a complete range of construction services to match modern project needs.
+        </p>
+      </div>
 
-            <div className="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {services.map((service, index) => (
-                    <div key={index} className="p-6 bg-white shadow rounded hover:shadow-lg transition">
-                        <h2 className="text-2xl font-semibold mb-2">{service.title}</h2>
-                        <p className="text-gray-600">{service.description}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
+      <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => (
+          <article key={service.title} className="rounded-2xl border border-slate-200 bg-slate-50/40 p-5 transition hover:shadow-md">
+            <h3 className="text-lg font-semibold text-slate-900">{service.title}</h3>
+            <p className="mt-2 text-sm text-slate-600">{service.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 };
 
 export default Services;

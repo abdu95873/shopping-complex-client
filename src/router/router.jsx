@@ -8,10 +8,6 @@ import ForgotPassword from '../pages/Authentication/ForgotPassword/ForgotPasswor
 import EnterCode from '../pages/Authentication/ForgotPassword/EnterCode';
 import ResetPassword from "../pages/Authentication/ForgotPassword/ResetPassword";
 import Error404 from "../pages/ErrorSection/Error404";
-import PrivetRoute from "../routes/PrivetRoute";
-import DashboardLayout from "../layouts/DashboardLayout";
-import MyParcels from "../pages/Dashboard/MyParcels/MyParcels";
-import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
 import Flat from "../pages/Flat/Flat";
 import Floor from "../pages/Floor/Floor";
 import AboutUs from "../pages/AboutUs/AboutUs";
@@ -79,29 +75,6 @@ const router = createBrowserRouter([
       },
     ]
   },
-  {
-
-    path: '/dashboard',
-    element: <PrivetRoute>
-      <DashboardLayout></DashboardLayout>
-    </PrivetRoute>,
-    errorElement: <Error404 />,
-    children: [
-      {
-        index: true,
-        Component: DashboardHome,
-
-      },
-      {
-        path: 'myParcels',
-        Component: MyParcels,
-
-      },
-
-    ]
-
-  },
-
   // Optional: catch all unmatched routes outside layouts
   {
     path: "*",

@@ -1,14 +1,11 @@
 import React from 'react';
-import logo from '../../../../assets/logo.png'
-import { Link } from 'react-router';
 
-const ProFastLogo = () => {
+const ProFastLogo = ({ className = "" }) => {
 
     return (
 
-        <div className='flex items-end ml-10'>
-            {/* <img className='mb-2' src={logo} alt="" /> */}
-            <span className='text-3xl -ml-2 font-extrabold'>RSC</span>
+        <div className={`flex items-end ${className}`}>
+            <span className='text-3xl -ml-2 font-extrabold tracking-tight'>RSC</span>
         </div>
     )
 };

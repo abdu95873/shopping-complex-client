@@ -5,6 +5,9 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged,
 import { auth } from '../../firebase/firebase.init';
 
 const googleProvider = new GoogleAuthProvider();
+const USER_ROLE_KEY = "userRole";
+
+const inferRoleFromUser = () => "admin";
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -27,6 +30,7 @@ const AuthProvider = ({ children }) => {
 
     const logOut = () => {
         setLoading(true);
+        localStorage.removeItem(USER_ROLE_KEY);
         return signOut(auth);
     }
 
@@ -38,6 +42,12 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            if (currentUser) {
+                const role = inferRoleFromUser(currentUser);
+                localStorage.setItem(USER_ROLE_KEY, role);
+            } else {
+                localStorage.removeItem(USER_ROLE_KEY);
+            }
             setLoading(false);
         })
         return () => {

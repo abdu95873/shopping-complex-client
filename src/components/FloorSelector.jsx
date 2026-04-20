@@ -18,12 +18,16 @@ const FloorSelector = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col gap-3 w-full">
+    <div className="flex w-full flex-col gap-2">
+      <div className="mb-2">
+        <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Building Floors</p>
+        <h3 className="text-lg font-bold text-slate-900">Quick Navigation</h3>
+      </div>
       {floors.map((floor) => (
         <button
           key={floor.id}
           onClick={() => navigate(`/floor/${floor.id}`)}
-          className="w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+          className="w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-900 hover:text-white"
         >
           {floor.label}
         </button>

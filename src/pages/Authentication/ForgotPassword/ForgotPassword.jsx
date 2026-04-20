@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
     const {
@@ -15,13 +15,13 @@ const ForgotPassword = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-base-200 px-4">
-            <div className="card w-full max-w-sm shadow-xl bg-base-100">
+        <div className="flex items-center justify-center px-2 py-4 sm:px-4">
+            <div className="card w-full max-w-md rounded-3xl border border-slate-200 bg-white shadow-sm">
 
                 {/* Header */}
                 <div className="px-6 pt-6 space-y-1">
-                    <h1 className="text-3xl font-bold">Forgot Password</h1>
-                    <p className="text-gray-600">
+                    <h1 className="text-3xl font-bold text-slate-900">Forgot Password</h1>
+                    <p className="text-slate-600">
                         Enter your email address and we’ll send you a reset link.
                     </p>
                 </div>
@@ -51,14 +51,13 @@ const ForgotPassword = () => {
                             )}
                         </div>
 
-                        <button className="btn  w-full mt-2">
+                        <button className="btn w-full border-none bg-slate-900 text-white hover:bg-slate-800 mt-2">
                             Send
                         </button>
 
-                        {/* Bottom Login Link */}
-                        <div className="flex items-center justify-center gap-1 text-sm opacity-80 mt-2">
+                        <div className="mt-2 flex items-center justify-center gap-1 text-sm text-slate-600">
                             <span>Remember your password?</span>
-                            <Link to="/login" className="link link-hover text-lime-700">Login</Link>
+                            <Link to="/login" className="font-medium text-slate-900 hover:underline">Login</Link>
                         </div>
                     </form>
                 </div>

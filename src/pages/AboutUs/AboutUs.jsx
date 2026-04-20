@@ -25,45 +25,35 @@ const cardData = [
 ];
 
 const AboutUs = () => {
-    return (
-        <div className="min-h-screen bg-gray-50 py-10 px-4">
+  return (
+    <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+      <div className="mx-auto max-w-5xl text-center">
+        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">About Us</h2>
+        <p className="mt-3 text-sm text-slate-600 sm:text-base">
+          Rohaman Construction is a trusted construction company specializing in residential,
+          commercial, and industrial projects with a strong focus on quality and timely delivery.
+        </p>
+      </div>
 
-            {/* ABOUT TEXT */}
-            <div className="max-w-5xl mx-auto text-center mb-12">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
-                <p className="text-gray-700 text-lg md:text-xl">
-                    Rohaman Construction is a trusted construction company specializing in
-                    residential, commercial, and industrial projects. We focus on quality,
-                    safety, and timely delivery.
-                </p>
+      <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {cardData.map((item) => (
+          <article key={item.title} className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/40">
+            <figure className="h-36">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="h-full w-full object-cover"
+              />
+            </figure>
+            <div className="space-y-2 p-4 text-center">
+              <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+              <p className="text-sm text-slate-600">{item.description}</p>
             </div>
-
-            {/* SMALL CARDS (MAP) */}
-            <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
-                {cardData.map((item, index) => (
-                    <div key={index} className="card bg-base-100 shadow-sm">
-                        <figure className="h-36">
-                            <img
-                                src={item.image}
-                                alt={item.title}
-                                className="w-full h-full object-cover"
-                            />
-                        </figure>
-
-                        <div className="card-body p-4 text-center">
-                            <h2 className="card-title text-lg justify-center">
-                                {item.title}
-                            </h2>
-                            <p className="text-sm text-gray-600">
-                                {item.description}
-                            </p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-        </div>
-    );
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 };
 
 export default AboutUs;

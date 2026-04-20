@@ -40,12 +40,12 @@ const EnterCode = () => {
         // 👉 Call your verification API here
     };
 
-    return (
-        <div className="flex w-full h-screen items-center justify-center bg-base-200 px-4">
-            <div className="card max-w-sm w-full shadow-2xl bg-base-100">
+  return (
+        <div className="flex w-full items-center justify-center px-2 py-4 sm:px-4">
+            <div className="card w-full max-w-md rounded-3xl border border-slate-200 bg-white shadow-sm">
                 <div className="px-6 pt-6">
-                    <h1 className="text-3xl mb-2">Enter Code</h1>
-                    <p className="text-gray-600 text-sm">
+                    <h1 className="text-3xl mb-2 font-bold text-slate-900">Enter Code</h1>
+                    <p className="text-slate-600 text-sm">
                         Enter 6 digit code that we sent to your email address
                     </p>
                 </div>
@@ -65,7 +65,7 @@ const EnterCode = () => {
                                             {...field}
                                             type="text"
                                             maxLength="1"
-                                            className="input text-center"
+                                            className="input input-bordered text-center"
                                             ref={(el) => (inputsRef.current[index] = el)}
                                             onChange={(e) => handleChange(e.target.value, index)}
                                             onKeyDown={(e) => handleKeyDown(e, index)}
@@ -75,8 +75,7 @@ const EnterCode = () => {
                             ))}
                     </div>
 
-                    {/* Verify Button */}
-                    <button type="submit" className="btn  w-full">
+                    <button type="submit" className="btn w-full border-none bg-slate-900 text-white hover:bg-slate-800">
                         Verify Code
                     </button>
                 </form>
